@@ -1,0 +1,41 @@
+body{
+    background-color: black;
+}
+
+.login{
+    margin-left: 500px;
+    margin-top: 200px;
+}
+
+.login h1 {
+    font-family:  sans-serif;
+    color: white;
+}
+
+.login input {
+    border: 1px solid white;
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    color: black
+}
+
+.login button {
+    padding: 10px 100px;
+    border-radius: 10px;
+    font-family: sans-serif;
+    cursor: pointer;
+    margin-left: 80px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.login button:hover{
+    background-color: white;
+    border: 1px solid transparent;
+    transition: all 0.4s;
+    color: black;
+}
