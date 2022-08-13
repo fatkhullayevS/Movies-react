@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { PopularRender } from "../../Render/PopularRender"
-export const Popular = () => {
+import { TopRender } from "../../Render/topRender"
+import { RenderPosts } from "../../RenderPosts/RenderPosts"
+export const TvShow = () => {
 
     const [movies, setMovies] = useState({
         isLoading: true,
@@ -13,7 +14,7 @@ export const Popular = () => {
 
 
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=4ae2bfba4d427f83c3c89c4e9a673697')
+        fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=4ae2bfba4d427f83c3c89c4e9a673697')
             .then(res => res.json())
             .then((data) => setResults(data.results))
             .catch((err) => setMovies({
@@ -25,7 +26,7 @@ export const Popular = () => {
     return (
         <>
             {movies.data && results.map((e) => (
-                <PopularRender key={e.id} item={e} />
+                <TopRender key={e.id} item={e} />
             ))}
 
         </>

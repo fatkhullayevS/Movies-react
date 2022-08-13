@@ -11,6 +11,7 @@ export const Login = () => {
     const handleForm = (e) => {
         e.preventDefault()
 
+
         fetch('https://reqres.in/api/login', {
             method: "POST",
             headers: {
@@ -25,8 +26,7 @@ export const Login = () => {
             .then(res => res.json())
             .then((data) => {
                 if (data) {
-                    window.localStorage.setItem("token", data.token)
-                    navigate("/")
+                    window.localStorage.setItem("token", data)
                 }
             })
             .catch((err) => console.log(err));
@@ -40,7 +40,7 @@ export const Login = () => {
                 <form onClick={handleForm}>
                     <input ref={elEmail} type="email" autoComplete="off" placeholder="Email..." /><br /><br />
                     <input ref={elPassword} type="password" placeholder="Password" /><br /><br />
-                    <button type="submit">Send</button>
+                    <button type="submit" >Send</button>
                 </form>
             </div>
         </>
