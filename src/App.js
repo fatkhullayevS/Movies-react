@@ -8,6 +8,7 @@ import { UpComing } from './Pages/UpComing/UpComing';
 import { TvShow } from './Pages/TvShow/TvShow';
 import { Header } from './Pages/Header/Header';
 import { RenderPosts } from './RenderPosts/RenderPosts';
+import { PostsPopularRender } from './RenderPosts/PopularRender/PostPopularRender';
 
 
 function App() {
@@ -15,19 +16,20 @@ function App() {
   return (
     <>
       {token ? <Header /> : <Login />}
-      <div className="container">
-        <div className="row">
-          <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/popular' element={<Popular />} />
-            <Route path='/top-rated' element={<Top />} />
-            <Route path='/upcoming' element={<UpComing />} />
-            <Route path='/tv-show' element={<TvShow />} />
-            <Route path='/movies/:id' element={<RenderPosts />} />
-          </Routes>
-        </div>
+
+      <div className="row">
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/popular' element={<Popular />} />
+          <Route path='/top-rated' element={<Top />} />
+          <Route path='/upcoming' element={<UpComing />} />
+          <Route path='/tv-show' element={<TvShow />} />
+          <Route path='/tv/:id' element={<RenderPosts />} />
+          <Route path='/movies/:id' element={<PostsPopularRender />} />
+        </Routes>
       </div>
+
 
     </>
 

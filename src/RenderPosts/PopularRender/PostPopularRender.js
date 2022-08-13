@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import "./render-posts.css"
-// import { TopRender } from "../../Render/topRender"
-export const RenderPosts = () => {
+import "./post-popular-render.css"
+export const PostsPopularRender = () => {
 
     const [movies, setMovies] = useState({})
 
     const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=4ae2bfba4d427f83c3c89c4e9a673697`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4ae2bfba4d427f83c3c89c4e9a673697`)
             .then(res => res.json())
             .then((data) => setMovies(data))
             .catch((err) => setMovies({
@@ -28,7 +27,7 @@ export const RenderPosts = () => {
                     <div className="d-flex render">
                         <img src={`https://image.tmdb.org/t/p/w400/${movies.poster_path}`} alt="" />
                         <div>
-                            <h1>{movies.original_name}</h1>
+                            <h1>{movies.original_title}</h1>
                             <p>{movies.overview}</p>
                             <p>Budget : {movies.popularity}$</p>
                             <p>Release date : {movies.first_air_date}</p>
