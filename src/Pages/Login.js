@@ -25,8 +25,10 @@ export const Login = () => {
         })
             .then(res => res.json())
             .then((data) => {
-                if (data) {
-                    window.localStorage.setItem("token", data)
+                if (data.token !== undefined) {
+                    window.localStorage.setItem("token", data.token)
+                    navigate("/")
+                    window.location.reload(true)
                 }
             })
             .catch((err) => console.log(err));
